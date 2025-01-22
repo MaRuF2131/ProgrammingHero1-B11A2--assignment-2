@@ -14,6 +14,11 @@
             padding: 0px;
             font-family: Quicksand; 
         }
+        button{
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
         img{
              object-fit: fill;
              width:100%;
@@ -52,7 +57,7 @@
             height: 62px;
         }
 
-        nav ul{
+         #hideable{
             display: flex;
             flex-wrap: wrap;
             justify-content:space-between;
@@ -103,6 +108,7 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            padding-top: 50px;
         }
         .hero .left-part{
             width:50%;
@@ -149,6 +155,7 @@
             align-items: center;
             margin-top: 60px;
             gap:50px;
+            background: url("./assets/bg.png");
         }
         h2{
             width:100%;
@@ -163,6 +170,7 @@
             flex-wrap: wrap;
             justify-content:space-between;
             align-items: center;
+            gap:20px;
         }
         .curr-card .card img{
             width: 130px;
@@ -186,16 +194,17 @@
             text-align: center;
         }
         .button-group button{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
+            padding:8px;
             background-color:rgb(240, 170, 0); 
-            border: none;
-            outline: none;
-            cursor: pointer;
-            text-align: center;
         }
         .curr-card .card{
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content:center;
@@ -203,6 +212,7 @@
             gap:30px;
             padding: 50px;
             max-width: 367px;
+            height: auto;
             border: 0.94px solid rgb(242, 232, 255);
             border-radius: 18.86px;
             box-shadow: inset 0px 0px 28.3px 0.94px rgba(0, 0, 0, 0.05);
@@ -238,9 +248,10 @@
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            justify-content:space-between;
+            justify-content:center;
             align-items:start;
             row-gap:80px;
+            column-gap: 10px;
             margin-top: 60px;
             padding-bottom: 60px;
             padding-top: 60px;
@@ -253,6 +264,19 @@
             line-height: 38.35px;
             text-align: left;
             padding:10px 15px;
+        }
+        .stories button{
+            border-radius: 12px;
+            background: rgb(17, 17, 17);
+            padding: 10px 30px;
+            color:white;
+            font-size: 20px;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+        }
+        .stories button:hover{
+            background-color:rgb(63, 52, 52);
+            transform: scale(1.1);
         }
     .left-div{
         width:39%;
@@ -333,9 +357,10 @@
         justify-content: space-between;
         align-items: center;
         background: rgb(1, 172, 253);
+        padding: 20px 50px;
     }
     footer .part-1{
-        width: 30%;
+        width:40%;
     }
     .kids-education{
         display: inline-flex;
@@ -343,33 +368,129 @@
         align-items: center;
         margin-bottom: 20px;
     }
+    footer .part-2 li{
+        margin-top:8px;
+    }
+    footer .part-2 h3{
+        color: rgb(255, 255, 255);
+        font-size: 26px;
+        font-weight: 700;
+    }
     footer .part-1 img{
         width:60px;
         height: 60px;
     }
-
+    footer .part-3 h3{
+        color: rgb(255, 255, 255);
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
     footer .part-3 img{
         width: 30px;
         height: 30px;
+    }
+    
+    /*resposive*/
+    .menubar{
+        display:none;
+        width: 23px;
+        height: 25px;
+    }
+    #menu-toggle {
+       display:none;
+     }
+
+    @media screen and (max-width:900px){
+        nav{
+            border-bottom: 2px solid rgb(240, 170, 0);
+            padding-bottom:8px;
+        }
+          nav button{
+             display: none;
+         }
+          #hideable{
+            display:none;
+            flex-direction: column;
+            justify-content:start;
+            align-items:start;
+            padding: 30px;
+            position:fixed;
+            top:97px;
+            right:0;
+            background-color: rgba(248, 249, 250,0.7);
+            width:min(100%,300px);
+            border-top: 1px solid #ddd;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+         }
+         .menubar{
+             display:block;
+             cursor: pointer;
+         }
+         
+        #menu-toggle:checked ~ #hideable{
+               display: flex;
+         }
+         .hero{
+            flex-direction: column-reverse;
+         }
+         .hero .right-part{
+            width:100%;
+         }
+         .hero .left-part{
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+         }
+         .left-div{
+            display: none;
+         }
+         .right-div{
+            width:100%;
+         }
+         .button-group button{
+            display: none;
+         }
+         .curr-card{
+            flex-direction: column;
+         }
+         .curr-card .card{
+            max-width:100%;
+            width: 100%;
+         }
+         footer{
+            flex-direction: column;
+            justify-content:start;
+            align-items:start;
+            row-gap: 10px;
+          }
+          footer .part-1,  footer .part-2,  footer .part-3{
+             width: 100%;
+          }
     }
     </style>
 </head>
 <body>
     <!-- header start -->
      <header>
-        <marquee behavior="scroll" direction="left">This is an infinite scrolling text loop using the marquee tag!</marquee>
+        <marquee behavior="scroll" direction="left" id="mrq">**Exciting News: Admissions Now Open for the Upcoming Academic Year!** 🌟!</marquee>
           <nav>
               <div class="logo">
                   <img src="./assets/logo.png" alt="logo">
                   <span>KID-SCHOOL</span>
               </div>
-              <ul>
+              <label for="menu-toggle" class="menubar">
+                <img src="./assets/menu-burger.svg" alt="menu-burger">
+              </label>
+              <input type="checkbox" id="menu-toggle" />
+              <ul id="hideable">
                  <li style="color: rgb(254, 163, 1);"><a href="">Home</a></li>
                  <li style="color: rgb(1, 172, 253);"><a href="">About</a></li>
                  <li style="color: rgb(5, 212, 223);"><a href="">Facilities</a></li>
                  <li style="color: rgb(93, 88, 239);"><a href="">Admission</a></li>
               </ul>
-
               <button type="button">Contact</button>
           </nav>
 
@@ -425,8 +546,8 @@
                  </div>
 
                  <div class="button-group">
-                    <button type="button"></button>
-                    <button type="button"></button>
+                    <button type="button"><img src="./assets/angle-left.svg" alt="svg"></button>
+                    <button type="button"><img src="./assets/angle-right.svg" alt="svg"></button>
                  </div>
             </div>
 
@@ -488,10 +609,11 @@
            <div class="part-1">
                     <div class="kids-education">
                         <img src="./assets/logo.png" alt="logo">
-                        <h3>kids Education</h3>
+                        <h3 style="font-size: 42.14px;font-weight: 700;color:white">kids<br> Education</h3>
                     </div>
-                    <p>Pizza ipsum dolor meat lovers buffalo. Deep dolor
-                         roll melted bacon Bianca pan bacon pineapple Aussie. Mayo rib sauce Hawaiian meatball.
+                    <p>Education empowers kids to explore their potential and develop critical thinking skills.
+                        A strong foundation in education fosters creativity, curiosity, and lifelong learning in children.
+                        By investing in kids' education, we nurture future leaders, innovators, and problem solvers.
                     </p>
            </div>
            <div class="part-2">
